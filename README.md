@@ -46,6 +46,17 @@ This project sets up a complete log analysis stack using OpenSearch, OpenSearch 
    docker-compose up -d
    ```
 
+## Configuration Indexing Pattern
+
+1. Open OpenSearch Dashboards at [http://localhost:5601](http://localhost:5601)
+2. Go to Management > Index Management > Create Index Pattern
+3. Enter `<your-index-name>-logs-*` as the index pattern name
+4. Click on Create index pattern
+5. Select `@timestamp` as the time field
+6. Click on Create index pattern
+7. Back to Discover page
+8. You should see your logs indexed in the Discover page
+
 ## Services
 
 - **OpenSearch**: Running on [http://localhost:9200](http://localhost:9200)
