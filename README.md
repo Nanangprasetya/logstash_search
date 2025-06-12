@@ -53,13 +53,24 @@ This project sets up a complete log analysis stack using OpenSearch, OpenSearch 
 ## Configuration Indexing Pattern
 
 1. Open OpenSearch Dashboards at [http://localhost:5601](http://localhost:5601)
-2. Go to Management > Dashboard Management > Index Patten > Click Create Index Pattern
+2. Go to Management > Dashboard Management > Index Patterns > Click Create Index Pattern
 3. Fill `<your-index-name>-logs-*` as the index pattern name
 4. Click on Create index pattern
 5. Select `@timestamp` as the time field
 6. Click on Create index pattern
 7. Back to Discover page
 8. You should see your logs indexed in the Discover page
+
+## Import Dashboard Template
+
+1. Open OpenSearch Dashboards at [http://localhost:5601](http://localhost:5601)
+2. Go to Management > Dashboard Management > Import Dashboard
+3. Click on Import
+4. Select `dashboard-template.ndjson` file
+5. Select your `<your-index-name>-logs-*` as the index pattern name
+6. Click on Import
+7. Back to Dashboard page
+8. You should see your dashboard in the Dashboard page
 
 ## Services
 
