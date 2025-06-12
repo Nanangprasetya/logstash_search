@@ -1,5 +1,7 @@
 # OpenSearch Log Analysis Stack
 
+![Cover Image](cover.png)
+
 This project sets up a complete log analysis stack using OpenSearch, OpenSearch Dashboards, and Logstash. It's designed to collect, process, and visualize JSON logs.
 
 ## Prerequisites
@@ -49,8 +51,8 @@ This project sets up a complete log analysis stack using OpenSearch, OpenSearch 
 ## Configuration Indexing Pattern
 
 1. Open OpenSearch Dashboards at [http://localhost:5601](http://localhost:5601)
-2. Go to Management > Index Management > Create Index Pattern
-3. Enter `<your-index-name>-logs-*` as the index pattern name
+2. Go to Management > Dashboard Management > Index Patten > Click Create Index Pattern
+3. Fill `<your-index-name>-logs-*` as the index pattern name
 4. Click on Create index pattern
 5. Select `@timestamp` as the time field
 6. Click on Create index pattern
