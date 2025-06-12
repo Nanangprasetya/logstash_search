@@ -1,0 +1,101 @@
+# OpenSearch Log Analysis Stack
+
+This project sets up a complete log analysis stack using OpenSearch, OpenSearch Dashboards, and Logstash. It's designed to collect, process, and visualize JSON logs.
+
+## Prerequisites
+
+- Docker
+- Docker Compose
+
+## Installation
+
+1. Clone this repository:
+
+   ```bash
+   git clone <repository-url>
+   cd logstash-search
+   ```
+
+2. Create environment file:
+
+   ```bash
+   cp .env.example .env
+   ```
+
+3. Configure the environment variables in `.env`:
+   - Set a strong password for `OPENSEARCH_INITIAL_ADMIN_PASSWORD`
+   - Adjust Java memory settings if needed (`OPENSEARCH_JAVA_OPTS`, `LS_JAVA_OPTS`)
+   - Set `PLUGINS_SECURITY_DISABLED=true` for development
+   - Set `DISABLE_SECURITY_DASHBOARDS_PLUGIN=true` for development
+
+4. Create a logs directory:
+
+   ```bash
+   mkdir logs
+   ```
+
+5. Create a symlink to the logs directory:
+
+   ```bash
+   ln -s /<YOUR_LOGS_PATH>/logs logs
+   ```
+
+6. Start the services:
+
+   ```bash
+   docker-compose up -d
+   ```
+
+## Services
+
+- **OpenSearch**: Running on [http://localhost:9200](http://localhost:9200)
+  - Search engine and document store
+  - Manages data indexing and search operations
+
+- **OpenSearch Dashboards**: Running on [http://localhost:5601](http://localhost:5601)
+  - Web interface for data visualization
+  - Create custom dashboards and visualizations
+
+- **Logstash**:
+  - Monitors the `logs` directory for JSON log files
+  - Processes logs matching pattern `log.*.log`
+  - Forwards processed logs to OpenSearch
+
+## Log Format
+
+Logstash expects JSON-formatted logs with a `time` field in UNIX milliseconds. Example:
+
+```json
+{
+  "time": 1623456789000,
+  "level": 30,
+  "msg": "Sample log message",
+  "context": "ClassService"
+}
+```
+
+## Security
+
+By default, security plugins are disabled for development. For production:
+
+1. Set `PLUGINS_SECURITY_DISABLED=false` in `.env`
+2. Set `DISABLE_SECURITY_DASHBOARDS_PLUGIN=false` in `.env`
+3. Configure proper authentication and SSL/TLS
+
+## Data Persistence
+
+OpenSearch data is persisted in a Docker volume named `osdata`.
+
+## Stopping the Stack
+
+To stop all services:
+
+```bash
+docker-compose down
+```
+
+To stop and remove all data:
+
+```bash
+docker-compose down -v
+```
