@@ -41,6 +41,8 @@ services:
       - ./logs:/logs:ro
     environment:
       LS_JAVA_OPTS: ${LS_JAVA_OPTS}
+      LOGSTASH_INPUT_PATH: ${LOGSTASH_INPUT_PATH}
+      LOGSTASH_OUTPUT_INDEX: ${LOGSTASH_OUTPUT_INDEX}
     depends_on:
       - opensearch
     networks:
