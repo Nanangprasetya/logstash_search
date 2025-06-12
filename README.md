@@ -24,23 +24,25 @@ This project sets up a complete log analysis stack using OpenSearch, OpenSearch 
    cp .env.example .env
    ```
 
-3. Configure the environment variables in `.env`:
-   - Set a strong password for `OPENSEARCH_INITIAL_ADMIN_PASSWORD`
-   - Adjust Java memory settings if needed (`OPENSEARCH_JAVA_OPTS`, `LS_JAVA_OPTS`)
-   - Set `PLUGINS_SECURITY_DISABLED=true` for development
-   - Set `DISABLE_SECURITY_DASHBOARDS_PLUGIN=true` for development
-
-4. Create a logs directory:
+3. Create a logs directory:
 
    ```bash
    mkdir logs
    ```
 
-5. Create a symlink to the logs directory:
+4. Create a symlink to the logs directory:
 
    ```bash
    ln -s /<YOUR_LOGS_PATH>/logs logs
    ```
+
+5. Configure the environment variables in `.env`:
+   - Set `LOGSTASH_INPUT_PATH` to the path of your log files
+   - Set `LOGSTASH_OUTPUT_INDEX` to the name of your index
+   - Set a strong password for `OPENSEARCH_INITIAL_ADMIN_PASSWORD`
+   - Adjust Java memory settings if needed (`OPENSEARCH_JAVA_OPTS`, `LS_JAVA_OPTS`)
+   - Set `PLUGINS_SECURITY_DISABLED=true` for development
+   - Set `DISABLE_SECURITY_DASHBOARDS_PLUGIN=true` for development
 
 6. Start the services:
 
