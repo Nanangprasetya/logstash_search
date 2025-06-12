@@ -99,3 +99,23 @@ To stop and remove all data:
 ```bash
 docker-compose down -v
 ```
+
+## Storage Analysis
+
+The following is a summary of the storage usage of the container:
+
+1. Container Sizes (actual/virtual):
+   - OpenSearch: 635kB (virtual 1.09GB)
+   - OpenSearch Dashboards: 257kB (virtual 1.6GB)
+   - Logstash: 367kB (virtual 1.77GB)
+   - Filebeat: 213kB (virtual 264MB)
+
+2. Volume:
+   - OpenSearch Data (logstash-search_osdata): 28.41MB
+
+**The total storage usage is:**
+
+- Container actual size: ~1.47MB
+- Container virtual size: ~4.72GB
+- Volume size: 28.41MB
+- Total effective size: ~4.75GB
