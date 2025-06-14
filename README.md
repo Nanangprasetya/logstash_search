@@ -72,6 +72,9 @@ This project sets up a complete log analysis stack using OpenSearch, OpenSearch 
 7. Back to Dashboard page
 8. You should see your dashboard in the Dashboard page
 
+![Dashboard Preview](dashboard.png)
+*Preview of the OpenSearch Dashboards interface showing the log analysis visualization*
+
 ## Services
 
 - **OpenSearch**: Running on [http://localhost:9200](http://localhost:9200)
